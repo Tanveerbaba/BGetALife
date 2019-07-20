@@ -5,10 +5,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
 import java.util.List;
 
 @RepositoryRestResource
 public interface BikeRepository extends CrudRepository<Bike, Long> {
+
+    List<Bike> findAll();
     List<Bike> findByBrand(@Param("brand") String brand);
 
     List<Bike> findByColor(String color);
